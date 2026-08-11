@@ -1,0 +1,155 @@
+import { Incident, MissingPerson, ActivityLog } from '../types';
+
+export const samplePhotos = [
+  {
+    id: 'p1',
+    name: 'Road Accident',
+    url: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&auto=format&fit=crop&q=80',
+    type: 'Road Accident',
+  },
+  {
+    id: 'p2',
+    name: 'Street Waterlogging',
+    url: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=600&auto=format&fit=crop&q=80',
+    type: 'Flood/Water Hazard',
+  },
+  {
+    id: 'p3',
+    name: 'Fallen Tree / Road Hazard',
+    url: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&auto=format&fit=crop&q=80',
+    type: 'Road Hazard',
+  },
+];
+
+export const initialIncidents: Incident[] = [
+  {
+    id: 'INC-1001',
+    type: 'Road Accident',
+    description: 'Two motorcycles collided near MG Road junction. Traffic slowing down.',
+    location: 'MG Road Metro Station Junction',
+    severity: 'Critical',
+    status: 'Help Dispatched',
+    timestamp: '15 mins ago',
+    createdAt: Date.now() - 15 * 60 * 1000,
+    photoUrl: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&auto=format&fit=crop&q=80',
+    titleEn: 'Multi-vehicle collision reported near MG Road',
+    titleTe: 'MG రోడ్డు వద్ద బహుళ వాహనాలు ఢీకొన్నాయి',
+    reassuranceEn: 'Critical emergency reported. Traffic police and ambulance have been dispatched to MG Road.',
+    reassuranceTe: 'తీవ్రమైన అత్యవసర పరిస్థితి నమోదు చేయబడింది. ట్రాఫిక్ పోలీసులు మరియు అంబులెన్స్ ఎంజీ రోడ్డుకు బయలుదేరారు.',
+    adviceEn: [
+      'Avoid taking MG Road flyover for the next 30 minutes',
+      'Give priority way to incoming emergency ambulances',
+      'Follow instructions from on-site traffic marshals',
+    ],
+    adviceTe: [
+      'తరువాతి 30 నిమిషాల పాటు MG రోడ్డు ఫ్లైఓవర్‌ను నివారించండి',
+      'వచ్చే అంబులెన్స్‌లకు దారి ఇవ్వండి',
+      'స్థానిక ట్రాఫిక్ మార్షల్స్ సూచనలను పాటించండి',
+    ],
+    estimatedResponseTime: '3-5 minutes',
+    reporterContact: '+91 98765 43210',
+  },
+  {
+    id: 'INC-1002',
+    type: 'Flood/Water Hazard',
+    description: 'Heavy waterlogging under railway underpass. Water depth around 2 feet.',
+    location: 'Central Railway Bridge Underpass',
+    severity: 'High',
+    status: 'Under Review',
+    timestamp: '45 mins ago',
+    createdAt: Date.now() - 45 * 60 * 1000,
+    photoUrl: 'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=600&auto=format&fit=crop&q=80',
+    titleEn: 'Severe waterlogging under Central Railway Bridge',
+    titleTe: 'సెంట్రల్ రైల్వే బ్రిడ్జి కింద భారీగా నీరు నిలిచింది',
+    reassuranceEn: 'Water hazard noted. Drainage response team dispatched to clear blockage.',
+    reassuranceTe: 'నీటి ప్రమాదం గుర్తించబడింది. డ్రైనేజీ టీమ్‌ను పంపించారు.',
+    adviceEn: [
+      'Do not attempt driving two-wheelers through deep water',
+      'Use alternative ring road route via Lake View flyover',
+      'Stay updated on regional weather alerts',
+    ],
+    adviceTe: [
+      'లోతైన నీటిలో ద్విచక్ర వాహనాలు నడపకండి',
+      'లేక్ వ్యూ ఫ్లైఓవర్ మార్గాన్ని ఉపయోగించండి',
+      'వాతావరణ హెచ్చరికలను గమనిస్తూ ఉండండి',
+    ],
+    estimatedResponseTime: '10-15 minutes',
+  },
+  {
+    id: 'INC-1003',
+    type: 'Road Hazard',
+    description: 'Large tree branch fallen across left lane near City Park gate 2.',
+    location: 'City Park North Gate',
+    severity: 'Medium',
+    status: 'New',
+    timestamp: '2 hours ago',
+    createdAt: Date.now() - 2 * 60 * 60 * 1000,
+    photoUrl: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&auto=format&fit=crop&q=80',
+    titleEn: 'Fallen tree branch obstructing traffic lane',
+    titleTe: 'చెట్టు కొమ్మ పడి ట్రాఫిక్‌కు అంతరాయం ఏర్పడింది',
+    reassuranceEn: 'Road hazard reported. Municipal forestry department notified to clear debris.',
+    reassuranceTe: 'రోడ్డు ప్రమాదం నమోదైంది. మునిసిపల్ విభాగానికి సమాచారం అందించబడింది.',
+    adviceEn: [
+      'Slow down when approaching City Park gate',
+      'Watch out for pedestrians walking around obstacle',
+    ],
+    adviceTe: [
+      'సిటీ పార్క్ గేట్ సమీపంలో వాహనాల వేగాన్ని తగ్గించండి',
+      'దారి దాటే బాటసారులను గమనించండి',
+    ],
+    estimatedResponseTime: '20 minutes',
+  },
+];
+
+export const initialMissingPersons: MissingPerson[] = [
+  {
+    id: 'MP-501',
+    name: 'Ramesh Kumar',
+    age: 68,
+    lastSeenLocation: 'Near Sunrise Apartments, Sector 4',
+    contactNumber: '+91 91234 56789',
+    photoUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80',
+    additionalDetails: 'Wearing blue shirt, grey trousers, memory impairment',
+    reportedAt: '3 hours ago',
+    alertEn: 'MISSING PERSON ALERT: Ramesh Kumar, Age 68. Last seen near Sunrise Apartments wearing a blue shirt. Kindly contact +91 91234 56789 if spotted.',
+    alertTe: 'కనిపించని వ్యక్తి అలర్ట్: రమేష్ కుమార్, వయస్సు 68. నీలిరంగు చొక్కా ధరించి సన్‌రైజ్ అపార్ట్‌మెంట్స్ సమీపంలో కనిపించారు. సమాచారం కోసం +91 91234 56789 ని సంప్రదించండి.',
+    status: 'Searching',
+  },
+  {
+    id: 'MP-502',
+    name: 'Aarav Sharma',
+    age: 9,
+    lastSeenLocation: 'Gandhi Public Park Playground',
+    contactNumber: '+91 98111 22233',
+    photoUrl: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=400&auto=format&fit=crop&q=80',
+    additionalDetails: 'Wearing red sweater and carrying yellow backpack',
+    reportedAt: '1 hour ago',
+    alertEn: 'URGENT CHILD ALERT: Aarav Sharma, Age 9. Last seen at Gandhi Park wearing red sweater and yellow backpack. Please alert 112 or call +91 98111 22233.',
+    alertTe: 'అత్యవసర చిన్నారి హెచ్చరిక: ఆరవ్ శర్మ, వయస్సు 9. గాంధీ పార్క్ వద్ద ఎరుపు స్వెటర్, పసుపు బ్యాగ్‌తో కనిపించాడు. దయచేసి 112 కి లేదా +91 98111 22233 కి కాల్ చేయండి.',
+    status: 'Searching',
+  },
+];
+
+export const initialActivityLogs: ActivityLog[] = [
+  {
+    id: 'log-1',
+    time: '10:42 AM',
+    textEn: 'Accident reported near MG Road — Assigned severity: Critical',
+    textTe: 'MG రోడ్డు వద్ద ప్రమాదం నమోదైంది — తీవ్రత: Critical',
+    severity: 'Critical',
+  },
+  {
+    id: 'log-2',
+    time: '10:45 AM',
+    textEn: 'Emergency response ambulance dispatched to MG Road',
+    textTe: 'MG రోడ్డుకు అత్యవసర అంబులెన్స్ పంపబడింది',
+    severity: 'Critical',
+  },
+  {
+    id: 'log-3',
+    time: '10:15 AM',
+    textEn: 'Waterlogging hazard logged at Central Railway Bridge',
+    textTe: 'సెంట్రల్ రైల్వే బ్రిడ్జి వద్ద నీటి ఎద్దడి నమోదు చేయబడింది',
+    severity: 'High',
+  },
+];

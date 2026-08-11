@@ -1,0 +1,6 @@
+{
+  "name": "SentinelAI — Public Safety Assistant",
+  "description": "A user-friendly public safety app for emergency reporting, AI-powered safety advice in English and Telugu, missing person alerts, flood risk monitoring, and community dashboard.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
